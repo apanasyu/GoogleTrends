@@ -55,7 +55,7 @@ The json results are stored in a pickled file as a pandas dataframe (see full co
                 df3 = df.loc[df['weights'] > 90]
                 df4 = df
 
-Finally these are used to assign a region (North/South America, Europe/Africa, or Asia/Oceania) based on highest cumulative score.
+Finally these are used to assign a region (North/South America, Europe/Africa, or Asia/Oceania) based on highest cumulative score for each region.
 
 
 
