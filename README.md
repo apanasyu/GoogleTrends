@@ -21,6 +21,14 @@ Because for our problem the regions are large we can also compare Google Trends 
 
 The library dependencies are: geopy, pytrends (Python ver. 3.9 used)
 
+The code for recording Google Trends:
+    kw_list = ['pizza', 'moscow']
+    for keyword in kw_list:
+      pytrends.build_payload([keyword])
+    if city:
+        df = pytrends.interest_by_region(resolution='CITY', inc_low_vol=True, inc_geo_code=False)
+    else:
+        df = pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=False)
 
 [1] Zola, Paola, Costantino Ragno, and Paulo Cortez. "A Google Trends spatial clustering approach for a worldwide Twitter user geolocation." Information Processing & Management 57.6 (2020): 102312.
 
