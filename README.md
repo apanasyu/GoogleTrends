@@ -33,8 +33,8 @@ The code for recording Google Trends:
 
 The collection is performed using a predefined list of keywords in file:
 
-    performCollection(True, 'Input/459.pickle') #Google Trends at city level
-    performCollection(False, 'Input/459.pickle') #Google Trends at country level
+    performCollection(True, 'Input/3183.pickle') #Google Trends at city level
+    performCollection(False, 'Input/3183.pickle') #Google Trends at country level
 
 The json results are stored in a pickled file as a pandas dataframe (see full code listing). Working with the pickled file we can retrieve the top ranked result, top 3 results, results with weight > 90, and all results which are in dataframes df1, df2, df3, and df4 (respectively).
 
@@ -60,7 +60,19 @@ The json results are stored in a pickled file as a pandas dataframe (see full co
                 df3 = df.loc[df['weights'] > 90]
                 df4 = df
 
-Finally these are used to assign a region (North/South America, Europe/Africa, or Asia/Oceania) based on highest cumulative score for each region.
+Finally these are used to assign a region:
+- (i) For each token, we record the set of cities A that came from the Americas (longitude <= -25), set of cities B that came from Europe/Africa (-25 < longitude <= 65), and set of cities C that came from Asia/Oceania (longitude > 65).
+- (ii) For each set of cities in A, B, C the cumulative score across the cities in each set are recorded. The cumulative score is based on the ranking returned by Google Trends (Google gives each city a weight based on how popular the token was in city, from 0 to 100).
+- (iii) A token is assigned to a region which captured the biggest cumulative score.
+The labels are evaluated using coordinates from message traffic. The file in Folder Input: combineDBsCoordinateGroundTruthDiv3.csv was generated using code from apanasyu/TwitterMining. The following code is used:
+
+    filename = 'Input/3183.pickle'
+    outputFilename = '3183.csv'
+    assignRegion(True, filename, str(True)+outputFilename) #city-level
+    assignRegion(False, filename, str(False)+outputFilename) #country-level
+
+This results in a file 'True3183.csv' and 'False3183.csv' in folder AssignRegion. For each keyword for which Google Trends contained data a label is computed and compared against label in message traffic dataset.
+
 
 
 
