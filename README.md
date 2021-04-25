@@ -23,4 +23,5 @@ The library dependencies are: geopy, pytrends (Python ver. 3.9 used)
 
 
 [1] Zola, Paola, Costantino Ragno, and Paulo Cortez. "A Google Trends spatial clustering approach for a worldwide Twitter user geolocation." Information Processing & Management 57.6 (2020): 102312.
+
 [2] https://gist.github.com/tadast/8827699#file-countries_codes_and_coordinates-csv
