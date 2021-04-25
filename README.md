@@ -22,6 +22,7 @@ Because for our problem the regions are large we can also compare Google Trends 
 The library dependencies are: geopy, pytrends (Python ver. 3.9 used)
 
 The code for recording Google Trends:
+
     kw_list = ['pizza', 'moscow']
     for keyword in kw_list:
       pytrends.build_payload([keyword])
@@ -29,6 +30,34 @@ The code for recording Google Trends:
         df = pytrends.interest_by_region(resolution='CITY', inc_low_vol=True, inc_geo_code=False)
     else:
         df = pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=False)
+
+The json results are stored in a pickled file as a pandas dataframe (see full code listing). Working with the pickled file we can retrieve the top ranked result, top 3 results, results with weight > 90, and all results which are in dataframes df1, df2, df3, and df4 (respectively).
+
+    for keyword in kw_list:
+        filename = outputDir+ keyword + '.pickle'
+        from os import path
+        if path.exists(filename):
+            import pickle
+            infile = open(filename,'rb')
+            df = pickle.load(infile)
+            infile.close()
+
+            if len(df) != 0:
+                weights = list(df['value'])
+                weightsValues = []
+                for value in weights:
+                    weightsValues.append(value[0])
+                df['weights'] = weightsValues
+                valuesReturned.append(len(df))
+
+                df1 = df.nlargest(1, 'weights')
+                df2 = df.nlargest(3, 'weights')
+                df3 = df.loc[df['weights'] > 90]
+                df4 = df
+
+Finally these are used to assign a region (North/South America, Europe/Africa, or Asia/Oceania) based on highest cumulative score.
+
+
 
 [1] Zola, Paola, Costantino Ragno, and Paulo Cortez. "A Google Trends spatial clustering approach for a worldwide Twitter user geolocation." Information Processing & Management 57.6 (2020): 102312.
 
