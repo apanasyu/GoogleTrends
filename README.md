@@ -31,6 +31,11 @@ The code for recording Google Trends:
     else:
         df = pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=False)
 
+The collection is performed using a predefined list of keywords in file:
+
+    performCollection(True, outputDir, 'Input/459.pickle') #Google Trends at city level
+    performCollection(False, outputDir, 'Input/459.pickle') #Google Trends at country level
+
 The json results are stored in a pickled file as a pandas dataframe (see full code listing). Working with the pickled file we can retrieve the top ranked result, top 3 results, results with weight > 90, and all results which are in dataframes df1, df2, df3, and df4 (respectively).
 
     for keyword in kw_list:
