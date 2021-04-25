@@ -15,7 +15,7 @@ Our project also utilizes Pytrends. Pytrend is an unofficial library supporting 
 There are other differences in that we are focussed on all tokens (not just nouns) and we already have three predefined regions that the world is broken up into (so the accuracy will be judged based on how well a region is predicted as was done in previous section). Google Trends ranking is used to predict a region for a token using:
 - (i) For each token, we record the set of cities A that came from the Americas (longitude $\leq$ -25), set of cities B that came from Europe/Africa (-25 $<$ longitude $\leq$ 65), and set of cities C that came from Asia/Oceania (longitude $>$ 65).
 - (ii) For each set of cities in A, B, C the cumulative score across the cities in each set are recorded. The cumulative score is based on the ranking returned by Google Trends (Google gives each city a weight based on how popular the token was in city, from 0 to 100).
-- (iii) A token is assigned to a region which captured the biggest cumulative score.
+- (iii) A token is assigned to a region which captured the biggest cumulative score (so no complex clustering required).
 
 Because for our problem the regions are large we can also compare Google Trends performance at the 'Country’ resolution vs. only 'City’. Each country given the average latitude and longitude of its cities based on CSV file [2].
 
