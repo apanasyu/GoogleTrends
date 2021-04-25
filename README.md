@@ -1,0 +1,2 @@
+# GoogleTrends
+Project as part of PhD studies at Syracuse University. Method utilizes Google Trends to associated a token with a set of cities or countries (depending on resolution used). Google gives each city/country a weight, from 0 to 100, based on how popular the token was (based on how many search queries, originating from that location, contained the token). Our project applied this resource over Twitter data in order to associate a token with North/South America, Europe/Africa, or Asia/Oceania.
