@@ -73,8 +73,17 @@ The labels are evaluated using coordinates from message traffic. The file in Fol
 
 This results in a file 'True3183.csv' and 'False3183.csv' in folder AssignRegion. For each keyword for which Google Trends contained data a label is computed and compared against label in message traffic dataset.
 
+# GoogleTrends not the same as Geocoding
 
+    formCityList('Input/3183.pickle') #forms list of cities from Google Trend Associations, stores into "allCities.pickle"
+    performCollection(True, "allCities.pickle") #Google Trends at city level
+    compareQueryCityLocationVsTopTrendingCityLocation()
+        
+Google Trends at city resolution associates tokens with city locations. For each city, the city name and its coordinates are stored in file "allCities.pickle". Next we send each city name to Google Trends and utilize the top city result. For example 'chicago' is sent and the top city result from Google Trends is returned. Because the coordinates for both city query and the top city via Google trend are known, they can be used to compute distance in miles between the two. The results of comparison for each city stored in: topCityAnalysis.csv. Here is an excerpt from this file:
 
+![image](https://user-images.githubusercontent.com/80060152/116116271-f6203100-a688-11eb-8fd7-56ea4353bcbd.png)
+
+Over 4789 cities on average the top city result from Google Trends is 362 miles away +/- 1335 miles. So Google Trends not same as geocoding, it merely returns the city where the keyword is currently trending which may not coincide with the actual city location. For more information see thesis which is or will soon be uploaded to github.
 
 [1] Zola, Paola, Costantino Ragno, and Paulo Cortez. "A Google Trends spatial clustering approach for a worldwide Twitter user geolocation." Information Processing & Management 57.6 (2020): 102312.
 
