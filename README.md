@@ -1,5 +1,5 @@
 # GoogleTrends
-Project as part of PhD studies at Syracuse University. Method utilizes Google Trends to associated a token with a set of cities or countries (depending on resolution used). Google gives each city/country a weight, from 0 to 100, based on how popular the token was (based on how many search queries, originating from that location, contained the token). Our project applied this resource over Twitter data in order to associate a token with North/South America, Europe/Africa, or Asia/Oceania.
+Project as part of PhD studies at Syracuse University. Method utilizes Google Trends to associated a token with a set of cities or countries (depending on resolution used). Google gives each city/country a weight, from 0 to 100, based on how popular the token was (based on how many search queries, originating from that location, contained the token). Our project applied this resource over Twitter data in order to associate a token with North/South America (NA_SA), Europe/Africa (AF_EUR), or Asia/Oceania (AS_OC).
 
 This project inspired by Zola et. al. [1]. Authors attempt to estimate worldwide Twitter user locations without relying on geolocation target labels (no geotagged tweets or user location profiles and no access to geographic dictionaries). Their dataset consisted of 744,830 tweets written by 3,298 users from 54 countries. The location of each user was manually verified. Their approach focuses on nouns (like sites, events, people), which are expected to have a spatial context that is helpful for user location estimation. Each noun was associated with a geographic region based on Google Trends (Google Trends identifies nouns that are trending in various cities). For each user, clustering is used to identify the most probable centroid from coordinates associated with each city. Because no geoinformation is used, the problem is more complex; their approach correctly predicts the ground truth locations of 15%, 23%, 39%, 58%, 70%, 82% of the users for tolerance distances of 250, 500, 1000, 2000, 4000, and 10000 km.
 
@@ -75,7 +75,7 @@ This results in a file 'True3183.csv' and 'False3183.csv' in folder AssignRegion
 
 ![image](https://user-images.githubusercontent.com/80060152/116128999-92513480-a697-11eb-9cc9-c8aa2243b3d0.png)
 
-Top Table shows performance at City Resolution and bottom at Country Resolution. 
+Top Table shows performance at City Resolution and bottom at Country Resolution for the three regions for these 3183 tokens. The first column shows the type of restrictions placed on a Google Trends results. Restrictions considered were (i) using only the location with the highest ranking, (ii) using top three locations, (iii) using locations with a weight $\geq$ 50, and (iv) using no restrictions. The second column is number of predictions and the next columns is the precision for each region. Overall precision and total number of predictions shown in last two columns.
 
 # GoogleTrends not the same as Geocoding
 
