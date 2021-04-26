@@ -19,7 +19,7 @@ There are other differences in that we are focussed on all tokens (not just noun
 
 Because for our problem the regions are large we can also compare Google Trends performance at the 'Country’ resolution vs. only 'City’. Each country given the average latitude and longitude of its cities based on CSV file [2].
 
-The library dependencies are: geopy, pytrends (Python ver. 3.9 used)
+The library dependencies are: geopy, pytrends (Python ver. 3.9 used). This project was coded using Windows 10 operating system (not sure if this affects pickled files).
 
 The code for recording Google Trends:
 
