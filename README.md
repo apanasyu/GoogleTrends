@@ -73,9 +73,7 @@ The labels are evaluated using coordinates from message traffic. The file in Fol
 
 This results in a file 'True3183.csv' and 'False3183.csv' in folder AssignRegion. For each keyword for which Google Trends contained data a label is computed and compared against label in message traffic dataset. Here is the performance over at the city and country resolution:
 
-![image](https://user-images.githubusercontent.com/80060152/116119716-b9eecf80-a68c-11eb-8559-629ed4da30b2.png)
-
-![image](https://user-images.githubusercontent.com/80060152/116128719-3e465000-a697-11eb-8742-79002198812e.png)
+![image](https://user-images.githubusercontent.com/80060152/116128999-92513480-a697-11eb-9cc9-c8aa2243b3d0.png)
 
 # GoogleTrends not the same as Geocoding
 
