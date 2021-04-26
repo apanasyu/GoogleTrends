@@ -75,6 +75,8 @@ This results in a file 'True3183.csv' and 'False3183.csv' in folder AssignRegion
 
 ![image](https://user-images.githubusercontent.com/80060152/116128999-92513480-a697-11eb-9cc9-c8aa2243b3d0.png)
 
+Top Table shows performance at City Resolution and bottom at Country Resolution. 
+
 # GoogleTrends not the same as Geocoding
 
     formCityList('Input/3183.pickle') #forms list of cities from Google Trend Associations, stores into "allCities.pickle"
